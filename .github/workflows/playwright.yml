@@ -55,15 +55,9 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: html-report--attempt-${{ github.run_attempt }}
-                  path: playwright-report/build
+                  path: playwright-report
                   retention-days: 14
-            - name: Setup Pages
-              uses: actions/configure-pages@v2
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v1
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@v4
               with:
-                  # Upload entire repository
-                  path: playwright-report/build
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v1
+                  folder: playwright-report # The folder the action should deploy.
