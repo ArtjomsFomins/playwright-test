@@ -57,7 +57,11 @@ jobs:
                   name: html-report--attempt-${{ github.run_attempt }}
                   path: playwright-report
                   retention-days: 14
-
+    deploy:
+        if: always()
+        needs: [merge-reports]
+        runs-on: ubuntu-latest
+        steps:
             - name: Deploy to GH Pages 🚀
               uses: JamesIves/github-pages-deploy-action@v4
               with:
