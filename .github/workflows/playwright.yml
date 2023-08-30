@@ -14,7 +14,7 @@ jobs:
               with:
                   node-version: 18
             - name: Install dependencies
-              run: yarn install --frozen-package
+              run: npm ci
             - name: Install Playwright browsers
               run: npx playwright install --with-deps
 
