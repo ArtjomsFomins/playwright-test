@@ -58,6 +58,9 @@ jobs:
                   path: playwright-report
                   retention-days: 14
             - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@v4
+              uses: crazy-max/ghaction-github-pages@v3
               with:
-                  folder: playwright-report # The folder the action should deploy.
+                  target_branch: gh-pages
+                  build_dir: playwright-report
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
